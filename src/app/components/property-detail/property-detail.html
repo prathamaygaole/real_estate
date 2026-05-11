@@ -1,0 +1,37 @@
+@if (property) {
+  <section class="detail">
+    <a routerLink="/properties" class="back">← Back to Properties</a>
+    <div class="detail-grid">
+      <div class="img-section">
+        <img [src]="property.image" [alt]="property.title" />
+      </div>
+      <div class="info">
+        <div class="info-header">
+          <span class="badge">{{ property.type }}</span>
+          <span class="status" [class.sold]="!property.available">
+            {{ property.available ? '✅ Available' : '❌ Sold Out' }}
+          </span>
+        </div>
+        <h1>{{ property.title }}</h1>
+        <p class="loc">📍 {{ property.location }}</p>
+        <p class="price">{{ property.price | currency:'INR':'symbol':'1.0-0' }}</p>
+        <p class="area">📐 {{ property.area }} sq.ft</p>
+        <p class="desc">{{ property.description }}</p>
+        <h3>Amenities</h3>
+        <div class="amenities">
+          @for (a of property.amenities; track a; let i = $index) {
+            <span class="amenity" [style.animation-delay]="(i * 0.08) + 's'">{{ a }}</span>
+          }
+        </div>
+        @if (property.available) {
+          <a routerLink="/contact" class="btn-primary">Enquire Now →</a>
+        }
+      </div>
+    </div>
+  </section>
+} @else {
+  <section class="not-found">
+    <h2>Property not found</h2>
+    <a routerLink="/properties" class="btn-primary">Browse Properties</a>
+  </section>
+}

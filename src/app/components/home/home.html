@@ -1,0 +1,87 @@
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Find Your <span>Dream Home</span></h1>
+    <p class="hero-sub">Explore premium 1RK, 1BHK & 2BHK flats at the best locations</p>
+    <a routerLink="/properties" class="btn-primary hero-btn">Browse Properties</a>
+  </div>
+</section>
+
+<!-- Trust Stats -->
+<section class="stats-bar">
+  @for (s of stats; track s.label; let i = $index) {
+    <div class="stat-item reveal" [style.transition-delay]="(i * 0.1) + 's'">
+      <span class="stat-value">{{ s.value }}</span>
+      <span class="stat-label">{{ s.label }}</span>
+    </div>
+  }
+</section>
+
+<!-- Property Types -->
+<section class="types">
+  <h2 class="reveal">What Are You Looking For?</h2>
+  <div class="type-cards">
+    <a routerLink="/properties" [queryParams]="{type: '1RK'}" class="type-card reveal" style="transition-delay: 0.1s">
+      <img src="images/type-1rk.svg" alt="1RK Studio Apartment" />
+      <div class="type-info">
+        <h3>1 RK</h3>
+        <p>Compact living spaces ideal for singles</p>
+      </div>
+    </a>
+    <a routerLink="/properties" [queryParams]="{type: '1BHK'}" class="type-card reveal" style="transition-delay: 0.2s">
+      <img src="images/type-1bhk.svg" alt="1BHK Apartment with Bedroom" />
+      <div class="type-info">
+        <h3>1 BHK</h3>
+        <p>Comfortable homes with separate bedroom</p>
+      </div>
+    </a>
+    <a routerLink="/properties" [queryParams]="{type: '2BHK'}" class="type-card reveal" style="transition-delay: 0.3s">
+      <img src="images/type-2bhk.svg" alt="2BHK Spacious Family Flat" />
+      <div class="type-info">
+        <h3>2 BHK</h3>
+        <p>Spacious family apartments</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Featured Properties -->
+<section class="featured">
+  <h2 class="reveal">Featured Properties</h2>
+  <div class="property-grid">
+    @for (p of featured; track p.id; let i = $index) {
+      <div class="property-card reveal" [style.transition-delay]="(i * 0.15) + 's'">
+        <div class="img-wrap">
+          <img [src]="p.image" [alt]="p.title" />
+          <div class="img-overlay">
+            <a [routerLink]="['/property', p.id]" class="overlay-btn">View Details</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="badge">{{ p.type }}</span>
+          <h3>{{ p.title }}</h3>
+          <p class="location">📍 {{ p.location }}</p>
+          <div class="card-footer">
+            <span class="price">{{ p.price | currency:'INR':'symbol':'1.0-0' }}</span>
+            <a [routerLink]="['/property', p.id]" class="btn-sm">View Details →</a>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+  <div class="section-cta reveal">
+    <a routerLink="/properties" class="btn-outline">View All Properties →</a>
+  </div>
+</section>
+
+<!-- Neighborhood Guides -->
+<app-neighborhood></app-neighborhood>
+
+<!-- EMI Calculator -->
+<app-emi-calculator></app-emi-calculator>
+
+<!-- Agents -->
+<app-agents></app-agents>
+
+<!-- Testimonials -->
+<app-testimonials></app-testimonials>

@@ -1,0 +1,56 @@
+.agents-section { padding: 4rem 2rem; max-width: 1200px; margin: auto; }
+h2 { text-align: center; font-size: 2rem; margin-bottom: 0.5rem; }
+.section-sub { text-align: center; color: #666; margin-bottom: 2.5rem; }
+
+.agents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+.agent-card {
+  background: white; border-radius: 16px; padding: 2rem; text-align: center;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.agent-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.agent-avatar {
+  width: 70px; height: 70px; border-radius: 50%; margin: 0 auto 1rem;
+  background: linear-gradient(135deg, #e94560, #c73652);
+  color: white; font-size: 1.8rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.agent-card h3 { font-size: 1.15rem; margin-bottom: 0.2rem; }
+.role { color: #e94560; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+
+.agent-stats {
+  display: flex; justify-content: center; gap: 2rem;
+  padding: 0.8rem 0; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 0.8rem;
+}
+.stat { text-align: center; }
+.stat-val { display: block; font-weight: 700; color: #0f3460; font-size: 1rem; }
+.stat-label { font-size: 0.75rem; color: #888; }
+
+.speciality { font-size: 0.85rem; color: #555; margin-bottom: 1rem; }
+
+.agent-actions { display: flex; gap: 0.6rem; justify-content: center; }
+.btn-call, .btn-email {
+  padding: 0.45rem 1rem; border-radius: 8px; font-size: 0.8rem; font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-call { background: #e94560; color: white; }
+.btn-email { background: #1a1a2e; color: white; }
+.btn-call:hover, .btn-email:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+@media (max-width: 992px) { .agents-grid { grid-template-columns: repeat(2, 1fr); } }
+
+@media (max-width: 768px) {
+  .agents-section { padding: 2.5rem 1rem; }
+  h2 { font-size: 1.4rem; }
+  .agents-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .agent-card { padding: 1.5rem; }
+  .agent-actions { flex-direction: column; }
+  .btn-call, .btn-email { width: 100%; text-align: center; padding: 0.6rem; }
+}

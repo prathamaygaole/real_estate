@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="600" viewBox="0 0 1400 600">
+  <rect width="1400" height="600" fill="#1a1a2e"/>
+  <rect x="500" y="200" width="400" height="250" rx="8" fill="#16213e" stroke="#e94560" stroke-width="3"/>
+  <polygon points="500,200 700,100 900,200" fill="#0f3460" stroke="#e94560" stroke-width="3"/>
+  <rect x="620" y="320" width="60" height="80" rx="4" fill="#e94560" opacity="0.8"/>
+  <rect x="540" y="250" width="50" height="50" rx="4" fill="#0f3460" stroke="#e94560" stroke-width="2"/>
+  <rect x="810" y="250" width="50" height="50" rx="4" fill="#0f3460" stroke="#e94560" stroke-width="2"/>
+  <text x="700" y="520" text-anchor="middle" fill="white" font-family="Arial" font-size="28" font-weight="bold">DreamHome Realty</text>
+</svg>

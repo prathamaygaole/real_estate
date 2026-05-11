@@ -1,0 +1,14 @@
+<nav class="navbar">
+  <a routerLink="/" class="logo">
+    <img src="images/logo.svg" alt="DreamHome Realty" class="logo-img" />
+    <span>DreamHome Realty</span>
+  </a>
+  <button class="hamburger" [class.active]="menuOpen" (click)="menuOpen = !menuOpen" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" [class.open]="menuOpen">
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="menuOpen=false">Home</a></li>
+    <li><a routerLink="/properties" routerLinkActive="active" (click)="menuOpen=false">Properties</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active" (click)="menuOpen=false">Contact</a></li>
+  </ul>
+</nav>

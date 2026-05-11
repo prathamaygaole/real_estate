@@ -1,0 +1,32 @@
+<section class="neighborhood-section">
+  <h2 class="reveal">Neighborhood Guides</h2>
+  <p class="section-sub reveal">Explore top localities where we have properties</p>
+  <div class="areas-grid">
+    @for (a of areas; track a.name; let i = $index) {
+      <div class="area-card reveal" [style.transition-delay]="(i * 0.12) + 's'">
+        <div class="area-header">
+          <h3>{{ a.name }}</h3>
+          <span class="area-tag">{{ a.tag }}</span>
+        </div>
+        <div class="area-price">
+          <span class="label">Avg. Price Range</span>
+          <span class="value">{{ a.avgPrice }}</span>
+        </div>
+        <div class="area-growth">
+          <span class="label">Price Growth</span>
+          <span class="growth-badge">📈 {{ a.growth }}</span>
+        </div>
+        <div class="area-detail">
+          <span class="label">🚇 Connectivity</span>
+          <p>{{ a.connectivity }}</p>
+        </div>
+        <div class="area-highlights">
+          @for (h of a.highlights; track h) {
+            <span class="highlight">{{ h }}</span>
+          }
+        </div>
+        <a routerLink="/properties" class="area-cta">View Properties →</a>
+      </div>
+    }
+  </div>
+</section>

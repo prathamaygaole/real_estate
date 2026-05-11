@@ -1,0 +1,28 @@
+<section class="agents-section">
+  <h2 class="reveal">Meet Our Experts</h2>
+  <p class="section-sub reveal">Trusted advisors to help you find the perfect home</p>
+  <div class="agents-grid">
+    @for (a of agents; track a.name; let i = $index) {
+      <div class="agent-card reveal" [style.transition-delay]="(i * 0.15) + 's'">
+        <div class="agent-avatar">{{ a.name.charAt(0) }}</div>
+        <h3>{{ a.name }}</h3>
+        <p class="role">{{ a.role }}</p>
+        <div class="agent-stats">
+          <div class="stat">
+            <span class="stat-val">{{ a.experience }}</span>
+            <span class="stat-label">Experience</span>
+          </div>
+          <div class="stat">
+            <span class="stat-val">{{ a.deals }}+</span>
+            <span class="stat-label">Deals Closed</span>
+          </div>
+        </div>
+        <p class="speciality">🏷️ {{ a.speciality }}</p>
+        <div class="agent-actions">
+          <a href="tel:{{ a.phone }}" class="btn-call">📞 Call</a>
+          <a href="mailto:{{ a.email }}" class="btn-email">✉️ Email</a>
+        </div>
+      </div>
+    }
+  </div>
+</section>

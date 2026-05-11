@@ -1,0 +1,37 @@
+.testimonials-section { padding: 4rem 2rem; max-width: 1200px; margin: auto; background: #f8f9fa; }
+h2 { text-align: center; font-size: 2rem; margin-bottom: 0.5rem; }
+.section-sub { text-align: center; color: #666; margin-bottom: 2.5rem; }
+
+.reviews-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+.review-card {
+  background: white; border-radius: 16px; padding: 1.8rem;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  transition: transform 0.4s, box-shadow 0.4s;
+  border-left: 4px solid #e94560;
+}
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.stars { color: #f59e0b; font-size: 1.2rem; margin-bottom: 0.8rem; letter-spacing: 2px; }
+.review-text { color: #444; line-height: 1.7; font-size: 0.95rem; margin-bottom: 1.2rem; font-style: italic; }
+
+.reviewer { display: flex; align-items: center; gap: 0.8rem; }
+.reviewer-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: #0f3460; color: white; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.reviewer-name { font-weight: 600; font-size: 0.9rem; }
+.reviewer-meta { font-size: 0.78rem; color: #888; }
+
+@media (max-width: 768px) {
+  .testimonials-section { padding: 2.5rem 1rem; }
+  h2 { font-size: 1.4rem; }
+  .reviews-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .review-card { padding: 1.3rem; }
+  .review-text { font-size: 0.9rem; }
+}

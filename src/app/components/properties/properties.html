@@ -1,0 +1,78 @@
+<section class="properties-page">
+  <h1 class="page-title">Our Properties</h1>
+
+  <!-- Type Filters -->
+  <div class="filters">
+    @for (f of filters; track f) {
+      <button [class.active]="activeFilter === f" (click)="setType(f)">{{ f }}</button>
+    }
+    <button class="toggle-advanced" (click)="showAdvanced = !showAdvanced">
+      {{ showAdvanced ? '✕ Close' : '⚙ Filters' }}
+    </button>
+  </div>
+
+  <!-- Advanced Search -->
+  @if (showAdvanced) {
+    <div class="advanced-panel">
+      <div class="filter-row">
+        <div class="filter-item">
+          <label>Max Budget: <strong>{{ maxPrice | currency:'INR':'symbol':'1.0-0' }}</strong></label>
+          <input type="range" [(ngModel)]="maxPrice" (ngModelChange)="applyFilters()" min="500000" max="10000000" step="100000" />
+        </div>
+        <div class="filter-item">
+          <label>Min Area: <strong>{{ minArea }} sq.ft</strong></label>
+          <input type="range" [(ngModel)]="minArea" (ngModelChange)="applyFilters()" min="0" max="1200" step="50" />
+        </div>
+        <div class="filter-item">
+          <label>Location</label>
+          <select [(ngModel)]="selectedLocation" (ngModelChange)="applyFilters()">
+            <option value="">All Locations</option>
+            @for (loc of locations; track loc) {
+              <option [value]="loc">{{ loc }}</option>
+            }
+          </select>
+        </div>
+        <div class="filter-item">
+          <label>Sort By</label>
+          <select [(ngModel)]="sortBy" (ngModelChange)="applyFilters()">
+            <option value="default">Default</option>
+            <option value="price-low">Price: Low → High</option>
+            <option value="price-high">Price: High → Low</option>
+            <option value="area">Area: Largest First</option>
+          </select>
+        </div>
+      </div>
+      <button class="reset-btn" (click)="resetFilters()">↻ Reset All</button>
+    </div>
+  }
+
+  <!-- Results Count -->
+  <p class="results-count">Showing {{ properties.length }} properties</p>
+
+  <!-- Property Grid -->
+  <div class="grid">
+    @for (p of properties; track p.id; let i = $index) {
+      <div class="card animate-card" [style.animation-delay]="(i * 0.1) + 's'">
+        <div class="img-wrap">
+          <img [src]="p.image" [alt]="p.title" />
+          <span class="badge">{{ p.type }}</span>
+          @if (!p.available) { <span class="sold">SOLD</span> }
+        </div>
+        <div class="body">
+          <h3>{{ p.title }}</h3>
+          <p class="loc">📍 {{ p.location }}</p>
+          <p class="area">📐 {{ p.area }} sq.ft</p>
+          <div class="footer">
+            <span class="price">{{ p.price | currency:'INR':'symbol':'1.0-0' }}</span>
+            <a [routerLink]="['/property', p.id]" class="btn">View Details →</a>
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <div class="no-results">
+        <p>😕 No properties match your filters</p>
+        <button (click)="resetFilters()" class="reset-btn">Reset Filters</button>
+      </div>
+    }
+  </div>
+</section>

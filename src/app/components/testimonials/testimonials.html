@@ -1,0 +1,19 @@
+<section class="testimonials-section">
+  <h2 class="reveal">What Our Clients Say</h2>
+  <p class="section-sub reveal">Real stories from happy homeowners</p>
+  <div class="reviews-grid">
+    @for (r of reviews; track r.name; let i = $index) {
+      <div class="review-card reveal" [style.transition-delay]="(i * 0.12) + 's'">
+        <div class="stars">{{ getStars(r.rating) }}</div>
+        <p class="review-text">"{{ r.text }}"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">{{ r.name.charAt(0) }}</div>
+          <div>
+            <p class="reviewer-name">{{ r.name }}</p>
+            <p class="reviewer-meta">📍 {{ r.location }} · {{ r.type }} Buyer</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

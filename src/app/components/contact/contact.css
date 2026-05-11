@@ -1,0 +1,81 @@
+.contact-page { max-width: 600px; margin: auto; padding: 3rem 2rem; }
+
+.contact-card {
+  background: white; border-radius: 16px; padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  animation: fadeInUp 0.6s ease both;
+}
+h1 { text-align: center; margin-bottom: 0.5rem; }
+.subtitle { text-align: center; color: #666; margin-bottom: 1.5rem; font-size: 0.95rem; }
+
+form { display: flex; flex-direction: column; gap: 0; }
+
+.input-group {
+  animation: fadeInUp 0.5s ease both;
+  margin-bottom: 1rem;
+}
+.input-group:nth-child(1) { animation-delay: 0.1s; }
+.input-group:nth-child(2) { animation-delay: 0.15s; }
+.input-group:nth-child(3) { animation-delay: 0.2s; }
+.input-group:nth-child(4) { animation-delay: 0.25s; }
+.input-group:nth-child(5) { animation-delay: 0.3s; }
+
+input, select, textarea {
+  width: 100%; padding: 0.85rem 1rem; border: 2px solid #eee; border-radius: 10px;
+  font-size: 16px; font-family: inherit; outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+  -webkit-appearance: none; background: white;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #e94560;
+  box-shadow: 0 0 0 3px rgba(233,69,96,0.1);
+  transform: translateY(-1px);
+}
+textarea { resize: vertical; min-height: 100px; }
+
+button {
+  background: #e94560; color: white; padding: 0.95rem; border: none;
+  border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer;
+  min-height: 50px;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  animation: fadeInUp 0.5s ease 0.35s both;
+}
+button:hover {
+  background: #c73652; transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233,69,96,0.3);
+}
+button:active { transform: translateY(0); }
+button:disabled { background: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* ===== Success ===== */
+.success {
+  text-align: center; padding: 3rem 2rem;
+  background: white; border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  animation: scaleIn 0.5s ease both;
+}
+.success-icon {
+  font-size: 4rem; margin-bottom: 1rem;
+  animation: bounceIn 0.8s ease both;
+}
+.success h1 { animation: fadeInUp 0.5s ease 0.3s both; }
+.success p { color: #666; margin: 1rem 0 2rem; animation: fadeInUp 0.5s ease 0.4s both; }
+.success button { animation: fadeInUp 0.5s ease 0.5s both; }
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .contact-page { padding: 1.5rem 1rem; }
+  .contact-card { padding: 1.5rem; border-radius: 12px; }
+  h1 { font-size: 1.4rem; }
+  .subtitle { font-size: 0.85rem; margin-bottom: 1.2rem; }
+  input, select, textarea { padding: 0.8rem 0.9rem; border-radius: 8px; }
+  button { border-radius: 8px; }
+  .success { padding: 2.5rem 1.5rem; border-radius: 12px; }
+  .success-icon { font-size: 3rem; }
+}
+
+@media (max-width: 400px) {
+  .contact-page { padding: 1rem 0.5rem; }
+  .contact-card { padding: 1.2rem; }
+  h1 { font-size: 1.2rem; }
+}

@@ -1,0 +1,38 @@
+<section class="contact-page">
+  @if (!submitted) {
+    <div class="contact-card">
+      <h1>Get In Touch</h1>
+      <p class="subtitle">Interested in a property? Fill out the form and we'll get back to you.</p>
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div class="input-group">
+          <input type="text" placeholder="Your Name" [(ngModel)]="form.name" name="name" required />
+        </div>
+        <div class="input-group">
+          <input type="email" placeholder="Email Address" [(ngModel)]="form.email" name="email" required />
+        </div>
+        <div class="input-group">
+          <input type="tel" placeholder="Phone Number" [(ngModel)]="form.phone" name="phone" required />
+        </div>
+        <div class="input-group">
+          <select [(ngModel)]="form.propertyType" name="propertyType" required>
+            <option value="" disabled>Select Property Type</option>
+            <option value="1RK">1 RK</option>
+            <option value="1BHK">1 BHK</option>
+            <option value="2BHK">2 BHK</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <textarea placeholder="Your Message" [(ngModel)]="form.message" name="message" rows="4"></textarea>
+        </div>
+        <button type="submit" [disabled]="!f.valid">Send Enquiry →</button>
+      </form>
+    </div>
+  } @else {
+    <div class="success">
+      <div class="success-icon">✅</div>
+      <h1>Thank You!</h1>
+      <p>Your enquiry has been submitted successfully. Our team will contact you shortly.</p>
+      <button (click)="submitted=false">Send Another Enquiry</button>
+    </div>
+  }
+</section>
